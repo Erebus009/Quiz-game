@@ -1,7 +1,12 @@
 // Global vars.
+const next = document.getElementById('nextBtn')
 const startBtn = document.getElementById('startBtn');
 const questionsbox = document.getElementById('box')
-var count = document.querySelector('.Quiz-box')
+var count = document.querySelector('.timer')
+var questions = document.querySelector('.')
+// object layout for questions. 
+
+
 
 
 
@@ -15,18 +20,20 @@ function startQuiz(){
     // remove class remove on div box containing all the buttons and questions to begin question 1. 
     questionsbox.classList.remove('remove');
 
-    // If button is clicked start timer for each question in array. 
+    // If start button is clicked start timer for each question in array. 
     var time = 60;
     
     var timer = setInterval(() => {
         if ( time > 0) {
             time--,
         count.textContent = time;
-        }
-        
-    }, 1000);
+        }else{
+            count.textContent = "Time's up!";
+            clearInterval(timer);
+            next.classList.remove('remove')
+          }
+        }, 1000);
 
-    
 }
 
 

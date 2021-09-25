@@ -19,7 +19,7 @@ body{ padding: 0px;
     --white: white;
     --correct: rgb(58, 211, 58);
     --wrong : rgb(189, 36, 36); 
-    --back: rgb(187, 184, 184);
+    --back: rgba(255, 255, 255, 0.979);
     --btn: rgb(34, 33, 33);
     --black: black;
 
@@ -31,10 +31,10 @@ body{ padding: 0px;
     width: 700px;
     height: 400px;
     max-width: 80%;
-    background-color: white;
+    background-color: rgb(135, 236, 194);
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 0px 16px 2px rgb(59, 58, 58);
+    box-shadow: 0 0px 10px 6px rgb(37, 37, 37);
     padding: 20px;
     
   
@@ -47,7 +47,7 @@ button{
     background-color: var(--btn);
     height: 50px;
     border-radius: 10px;
-    color: white;
+    color: rgb(245, 245, 245);
     font-size: 2em;
     
 }
@@ -74,15 +74,21 @@ button:hover{
 }
 .gamebuttons {
     display: grid;
-    grid-template-columns: repeat(2,20%);
     gap: 30px;
+    justify-content: right;
+    align-items: flex-end;
+    
+   
+    
 
     
 }
 
 .gamebuttons button:hover {
    transform: none;
-   box-shadow: 0 0 10px 2px rgb(70, 69, 69);
+   transition: 0.2s;
+   cursor: pointer;
+
 }
 .remove {
     display: none;
@@ -93,7 +99,22 @@ button:hover{
     height: 100px;
     width: 300px;
     bottom: 440px;
+
     
 
+    
+}
+.questions-box {
+    font-size: 2em;
+    width: 100%;
+    text-align: right;
+    
+
+}
+.next {
+    align-items: flex-end;
+    justify-content: right;
+    width: 200px;
+    height: 100px;
     
 }
