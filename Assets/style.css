@@ -64,7 +64,7 @@ button:hover{
    
     
 }
-.button-grid{
+#button-grid{
     display: grid;
     grid-template-columns: repeat(2,auto);
     gap: 20px;
@@ -96,7 +96,4 @@ button:hover{
     
 
     
-}
-.show{
-    display: block;
 }
