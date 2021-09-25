@@ -1,11 +1,11 @@
 // Global vars.
-var score = [];
+var score = 0
 const nextBtn = document.getElementById('nextBtn')
 const startBtn = document.getElementById('startBtn');
 const questionsbox = document.getElementById('box')
 var countEl = document.querySelector('.timer')
 var questionEl = document.querySelector('.questions')
-const  answerBtnEl = document.getElementById('correct')
+const  answerBtnEl = document.getElementById('button-grid')
 
 
 let shuffle , currentindex
@@ -13,12 +13,12 @@ let shuffle , currentindex
 const questionBank = [ 
 
     {
-        question: "tallest building in the world? ",
-            answer : [
-                {text: 'Home',  correct: true },
-                {text: 'Cheese', correct: false},
-                {text: 'rock', correct: false},
-                {text: 'mold', correct: false}
+        question: "What is the world's rarest gutiar",
+            a : [
+                {text: '1954 Original Gibson Les Paul Custom “Black Beauty”',  correct:true},
+                {text: '1949 Bigsby Birdseye Maple Solid Body', correct: false},
+                {text: '1958 Gibson Explorer', correct: false},
+                {text: '1964 Vox V251 Guitar Organ Prototype', correct: false}
             ]
         }
     ]
@@ -42,8 +42,7 @@ function startQuiz(){
     // populate buttons with answers. 
     showQuestion(shuffle[currentindex]);
     
-    
-    
+ 
     // goes to next question. 
     
 
@@ -62,21 +61,21 @@ function startQuiz(){
             clearInterval(timer);
             nextBtn.classList.remove('remove')
           }
-        }, 1000);
-         
+        }, 900);
+   
 
 }
 
 function showQuestion(questionBank){
     questionEl.innerText = questionBank.question;
-    questionBank.answer.forEach(answer => {
+    questionBank.a.forEach(a => {
         const button = document.createElement('button')
-        button.innerText= answer.text
-        button.classList.add('button');
-        if (answer.correct) {
-            button.dataset.correct = answer.correct
+        button.innerText= a.text
+        if (a.correct) {
+            button.dataset.correct = a.correct
         }
-        
+        button.addEventListener('click', selected)
+        answerBtnEl.appendChild(button)
     });
     
 }
@@ -84,11 +83,12 @@ function next(){
     reset();
     showQuestion(shuffle[currentindex])
 }
-
-function selected(e){
-    const selectedbtn 
-
+function selected(){
+    nextBtn.classList.remove('remove')
+    clearInterval(timer);
+    score++;
 }
+
 function reset() {
     nextBtn.classList.add('remove')
     while (answerBtnEl.firstChild) {
@@ -99,3 +99,4 @@ function reset() {
 
 
 console.log(startQuiz);
+console.log(selected);
