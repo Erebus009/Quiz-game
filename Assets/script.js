@@ -1,5 +1,4 @@
 // Global vars.
-
 const startBtn = document.getElementById('startBtn');
 
 
