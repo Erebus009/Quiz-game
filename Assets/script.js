@@ -1,29 +1,33 @@
 // Global vars.
 var score = [];
-const next = document.getElementById('nextBtn')
+const nextBtn = document.getElementById('nextBtn')
 const startBtn = document.getElementById('startBtn');
 const questionsbox = document.getElementById('box')
-var count = document.querySelector('.timer')
-var question = document.querySelector('.questions')
+var countEl = document.querySelector('.timer')
+var questionEl = document.querySelector('.questions')
+const  answerBtnEl = document.getElementById('correct')
 
+
+let shuffle , currentindex
 //  layout for questions. 
-var questions = [
+const questionBank = [ 
 
-    "What does the milk from cows produce?"
+    {
+        question: "tallest building in the world? ",
+            answer : [
+                {text: 'Home',  correct: true },
+                {text: 'Cheese', correct: false},
+                {text: 'rock', correct: false},
+                {text: 'mold', correct: false}
+            ]
+        }
+    ]
+console.log(questionBank);
+console.log();
 
-
-]
-
-
-var answers = [
-    "cheese",
-    "things",
-    "curds",
-    "yogurt"
-]
-
-
+// start button clicked starts quiz
 startBtn.addEventListener("click", startQuiz);
+// nextBtn.addEventListener('click', nextQuestion);
 
 // When start clicked begins a timer for each questiuon and removes start button from view.
 function startQuiz(){
@@ -32,47 +36,66 @@ function startQuiz(){
     startBtn.classList.add('remove');
     // remove class remove on div box containing all the buttons and questions to begin question 1. 
     questionsbox.classList.remove('remove');
-    
+    shuffle = questionBank.sort(()=>Math.random() - 0.5)
+    currentindex = 0;
+
     // populate buttons with answers. 
+    showQuestion(shuffle[currentindex]);
+    
+    
+    
+    // goes to next question. 
+    
 
-    var node = document.createTextNode(answers[0]);
-    document.querySelector('.answer1').appendChild(node);
 
-    var node2 = document.createTextNode(answers[1]);
-    document.querySelector('.answer2').appendChild(node2);
-    
-    var node3 = document.createTextNode(answers[2]);
-    document.querySelector('.answer3').appendChild(node3);
-    
-    var node4 = document.createTextNode(answers[3]);
-    document.querySelector('.answer4').appendChild(node4);
-   
-    var asker = document.createTextNode(questions[0]);
-    document.querySelector('.questions').appendChild(asker);
-    
 
     // If start button is clicked start timer for each question in array. 
-    var time = 45;
+    var time = 40;
     // keeps text starting at whichever time is to keep from odd looking pop in of numbers when interval starts. 
-    count.textContent=time;
+    countEl.textContent=time;
     var timer = setInterval(() => {
         if ( time > 0) {
             time--,
-        count.textContent = time;
+        countEl.textContent = time;
         }else{
-            count.textContent = "Time's up!";
+            countEl.textContent = "Time's up!";
             clearInterval(timer);
-            next.classList.remove('remove')
+            nextBtn.classList.remove('remove')
           }
         }, 1000);
+         
 
 }
 
-
+function showQuestion(questionBank){
+    questionEl.innerText = questionBank.question;
+    questionBank.answer.forEach(answer => {
+        const button = document.createElement('button')
+        button.innerText= answer.text
+        button.classList.add('button');
+        if (answer.correct) {
+            button.dataset.correct = answer.correct
+        }
+        
+    });
     
+}
+function next(){
+    reset();
+    showQuestion(shuffle[currentindex])
+}
 
+function selected(e){
+    const selectedbtn 
 
-
+}
+function reset() {
+    nextBtn.classList.add('remove')
+    while (answerBtnEl.firstChild) {
+        answerBtnEl.removeChild
+        (answerBtnEl.firstChild)
+    }
+}
 
 
 console.log(startQuiz);
