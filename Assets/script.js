@@ -3,7 +3,7 @@ const next = document.getElementById('nextBtn')
 const startBtn = document.getElementById('startBtn');
 const questionsbox = document.getElementById('box')
 var count = document.querySelector('.timer')
-var questions = document.querySelector('.')
+var questions = document.querySelector('.questions')
 // object layout for questions. 
 
 
@@ -21,7 +21,7 @@ function startQuiz(){
     questionsbox.classList.remove('remove');
 
     // If start button is clicked start timer for each question in array. 
-    var time = 60;
+    var time = 1;
     
     var timer = setInterval(() => {
         if ( time > 0) {
