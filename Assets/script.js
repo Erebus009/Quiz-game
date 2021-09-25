@@ -1,13 +1,18 @@
 // Global vars.
+var score = [];
 const next = document.getElementById('nextBtn')
 const startBtn = document.getElementById('startBtn');
 const questionsbox = document.getElementById('box')
 var count = document.querySelector('.timer')
-var questions = document.querySelector('.questions')
+var question = document.querySelector('.questions')
+
 // object layout for questions. 
-
-
-
+var questions = [
+    "cheese",
+    "milk",
+    "curds",
+    "yogurt"
+]
 
 
 startBtn.addEventListener("click", startQuiz);
@@ -21,8 +26,9 @@ function startQuiz(){
     questionsbox.classList.remove('remove');
 
     // If start button is clicked start timer for each question in array. 
-    var time = 1;
-    
+    var time = 45;
+    // keeps text starting at whichever time is to keep from odd looking pop in of numbers when interval starts. 
+    count.textContent=time;
     var timer = setInterval(() => {
         if ( time > 0) {
             time--,
