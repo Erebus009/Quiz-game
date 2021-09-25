@@ -42,6 +42,14 @@ body{ padding: 0px;
     
 
 }
+.questions {
+
+    text-align: center;
+
+}
+
+
+
 button#Q{
   overflow: hidden;
   text-overflow: ellipsis;
