@@ -75,7 +75,8 @@ button:hover{
 .gamebuttons {
     display: grid;
     grid-template-columns: repeat(2,20%);
-    gap: 40px;
+    gap: 30px;
+
     
 }
 
@@ -85,4 +86,17 @@ button:hover{
 }
 .remove {
     display: none;
+}
+#startBtn {
+    position: absolute;
+    margin: 0 auto;
+    height: 100px;
+    width: 300px;
+    bottom: 440px;
+    
+
+    
+}
+.show{
+    display: block;
 }
