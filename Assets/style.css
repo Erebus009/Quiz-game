@@ -1,141 +1,104 @@
-body{ padding: 0px;
-    margin: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background-color: var(--back);
-
+body {
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--back);
 }
-*,*::after, *::before{
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-
-:root{
-
-    --white: white;
-    --correct: rgb(58, 211, 58);
-    --wrong : rgb(189, 36, 36); 
-    --back: rgba(255, 255, 255, 0.979);
-    --btn: rgb(34, 33, 33);
-    --black: black;
-
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-
+:root {
+  --white: white;
+  --correct: rgb(58, 211, 58);
+  --wrong: rgb(189, 36, 36);
+  --back: rgba(96, 95, 99, 0.979);
+  --btn: rgb(34, 33, 33);
+  --black: black;
+  --container: rgb(77, 154, 206);
+}
 
 #container {
-    width: 800px;
-    height: 600px;
-    background-color: rgb(135, 236, 194);
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0px 10px 6px rgb(37, 37, 37);
-    padding: 20px;
-    
-  
-   
-
-    
-
+  width: 800px;
+  height: 600px;
+  background-color: var(--container);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0px 10px 6px rgb(37, 37, 37);
+  padding: 20px;
 }
 .questions {
-
-    text-align: center;
-
+  text-align: center;
 }
 
-
-
-button#Q{
+button#Q {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space:normal !important;
-  word-wrap:break-word;
-
+  white-space: normal !important;
+  word-wrap: break-word;
 }
 
-
-button{
-    background-color: var(--btn);
-    border-radius: 10px;
-    color: rgb(245, 245, 245);
-    font-size: 2em;
-    
-   
-    
+button {
+  background-color: var(--btn);
+  border-radius: 10px;
+  color: rgb(245, 245, 245);
+  font-size: 2em;
 }
-button:hover{
-    transform: translatey(-2px);
-    transition: 0.1s;
+button:hover {
+  transform: translatey(-2px);
+  transition: 0.1s;
 }
 
-
-#button-grid{
-    display: grid;
-    grid-template-columns: repeat(2,auto);
-    gap: 20px;
-    
-    
-
+#button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 20px;
 }
 .gamebuttons {
-    display: grid;
-    gap: 30px;
-    justify-content: right;
-    align-items: flex-end;
-    margin-top: 50px;
-  
-    
-   
-    
-
-    
+  display: grid;
+  gap: 30px;
+  justify-content: right;
+  align-items: flex-end;
+  margin-top: 50px;
 }
 
 .gamebuttons button:hover {
-   transform: none;
-   transition: 0.2s;
-   cursor: pointer;
-
+  transform: none;
+  transition: 0.2s;
+  cursor: pointer;
 }
 .remove {
-    display: none;
+  display: none;
 }
 #startBtn {
-    position: absolute;
-    margin: 0 auto;
-    height: 100px;
-    width: 300px;
-    bottom: 440px;
-
-    
-
-    
+  position: absolute;
+  margin: 0 auto;
+  height: 100px;
+  width: 300px;
+  bottom: 440px;
 }
 .questions-box {
-    font-size: 2em;
-    width: 100%;
-    text-align: right;
-    
-
+  font-size: 2em;
+  width: 100%;
+  text-align: right;
 }
 .next {
-    align-items: flex-end;
-    justify-content: right;
-    
-   
-    
+  align-items: flex-end;
+  justify-content: right;
 }
 .timer {
-    text-align: right;
-    font-size: 2em;
+  text-align: right;
+  font-size: 2em;
 }
-.questions{
-    font-size: 2em;
-    text-align: center;
-    margin: 60px 0px;
+.questions {
+  font-size: 2em;
+  text-align: center;
+  margin: 60px 0px;
 }

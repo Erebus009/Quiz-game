@@ -6,6 +6,8 @@ const questionsbox = document.getElementById('box')
 var countEl = document.querySelector('.timer')
 var questionEl = document.querySelector('.questions')
 const  answerBtnEl = document.getElementById('button-grid')
+var time = 20;
+var counterRan= 0;
 
 
 let shuffle , currentindex
@@ -13,7 +15,7 @@ let shuffle , currentindex
 const questionBank = [ 
 
     {
-        question: "What is the world's rarest gutiar",
+        question: "What is the world's rarest gutiar?",
             a : [
                 {text: '1954 Original Gibson Les Paul Custom “Black Beauty”',  correct:true},
                 {text: '1949 Bigsby Birdseye Maple Solid Body', correct: false},
@@ -21,17 +23,25 @@ const questionBank = [
                 {text: '1964 Vox V251 Guitar Organ Prototype', correct: false}
             ]
         }
-    ]
-console.log(questionBank);
+
+]
+
+
+
+
+    console.log(questionBank);
 console.log();
 
 // start button clicked starts quiz
 startBtn.addEventListener("click", startQuiz);
 // nextBtn.addEventListener('click', nextQuestion);
-
+nextBtn.addEventListener('click', next)
 // When start clicked begins a timer for each questiuon and removes start button from view.
 function startQuiz(){
     console.log("Game begins");
+    // allows time to be display right away. to stop div expansion being odd. 
+    
+    
     // add class remove to start btn CSS= display:none;
     startBtn.classList.add('remove');
     // remove class remove on div box containing all the buttons and questions to begin question 1. 
@@ -41,30 +51,53 @@ function startQuiz(){
 
     // populate buttons with answers. 
     showQuestion(shuffle[currentindex]);
+    countEl.textContent= 'Time left: ' + time;
+    timer();
+    
+   
     
  
-    // goes to next question. 
     
-
-
-
-    // If start button is clicked start timer for each question in array. 
-    var time = 40;
-    // keeps text starting at whichever time is to keep from odd looking pop in of numbers when interval starts. 
-    countEl.textContent=time;
-    var timer = setInterval(() => {
-        if ( time > 0) {
-            time--,
-        countEl.textContent = time;
-        }else{
-            countEl.textContent = "Time's up!";
-            clearInterval(timer);
-            nextBtn.classList.remove('remove')
-          }
-        }, 900);
-   
-
 }
+
+
+
+
+
+// keeps text starting at whichever time is to keep from odd looking pop in of numbers when interval starts. 
+function timer(){
+
+var timer = setInterval(() => {
+    
+    if ( time > 0) {
+        time--;
+        countEl.textContent= 'Time left:' + time;
+    if(counterRan === 1){
+        countEl.textContent = "Correct!"
+        clearInterval(timer)
+
+    }
+
+     }else {
+         
+        clearInterval(timer)
+        countEl.textContent = "Time's up!";
+        nextBtn.classList.remove('remove')
+        
+        
+      }
+    }
+, 1000);
+}
+
+
+
+
+
+
+
+
+
 
 function showQuestion(questionBank){
     questionEl.innerText = questionBank.question;
@@ -73,21 +106,37 @@ function showQuestion(questionBank){
         button.innerText= a.text
         if (a.correct) {
             button.dataset.correct = a.correct
+            
         }
         button.addEventListener('click', selected)
         answerBtnEl.appendChild(button)
+        
     });
     
 }
 function next(){
+    
     reset();
-    showQuestion(shuffle[currentindex])
+    showQuestion(shuffle[currentindex]);
+    
+    
+    
 }
-function selected(){
-    nextBtn.classList.remove('remove')
-    clearInterval(timer);
-    score++;
-}
+function selected(e){
+    const selectedBtn = e.target;
+    const correct = selectedBtn.dataset.correct;
+    if (correct) {
+        counterRan++;
+        nextBtn.classList.remove('remove');
+        countEl.textContent = "Correct!";
+        
+        
+        
+    }
+    
+} 
+
+
 
 function reset() {
     nextBtn.classList.add('remove')
@@ -100,3 +149,4 @@ function reset() {
 
 console.log(startQuiz);
 console.log(selected);
+console.log(counterRan);
