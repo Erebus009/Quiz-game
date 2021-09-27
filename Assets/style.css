@@ -55,6 +55,11 @@ body {
 .questions {
   text-align: center;
 }
+h1{
+  text-decoration: underline;
+  color: white;
+  
+}
 
 button#Q {
   overflow: hidden;
@@ -128,7 +133,7 @@ button:hover {
   text-align: center;
   margin: 60px 0px;
 }
-#Highscores {
+#highscores {
   margin: auto;
   background-color: rgb(36, 37, 39);
   height: 100vh;
