@@ -79,10 +79,12 @@ var timer = setInterval(() => {
     }
 
      }else {
-         
+        var button = document.querySelector('[data-correct]');
+        button.removeAttribute('data-correct');
         clearInterval(timer)
         countEl.textContent = "Time's up!";
         nextBtn.classList.remove('remove')
+        
         
         
       }
@@ -115,9 +117,13 @@ function showQuestion(questionBank){
     
 }
 function next(){
-    
+    counterRan = 0;
+    time = 20;
     reset();
+    timer();
     showQuestion(shuffle[currentindex]);
+    countEl.textContent = 'Time left: ' + time;
+    
     
     
     
@@ -125,14 +131,20 @@ function next(){
 function selected(e){
     const selectedBtn = e.target;
     const correct = selectedBtn.dataset.correct;
+    
+    // if(time = 0) {
+    //     selectedBtn === selectedBtn.dataset.timeup;
+    
     if (correct) {
         counterRan++;
         nextBtn.classList.remove('remove');
         countEl.textContent = "Correct!";
-        
-        
-        
+    
     }
+        
+        
+        
+    
     
 } 
 
