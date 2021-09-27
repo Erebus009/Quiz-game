@@ -22,8 +22,25 @@ const questionBank = [
                 {text: '1958 Gibson Explorer', correct: false},
                 {text: '1964 Vox V251 Guitar Organ Prototype', correct: false}
             ]
-        }
+            
+        }, {
+        question: "world's most toxic frog?",
+            a : [
+                {text: '1954dfdfdfd”',  correct:true},
+                {text: '1949 Bigdfdfdolid Body', correct: false},
+                {text: '1dfdfdfddplorer', correct: false},
+                {text: '1964dfdfdfdrototype', correct: true}
+            ]
 
+        }, {
+            question: "monkeys eyes?",
+            a : [
+                {text: '19fefeffd”',  correct:false},
+                {text: '1fefefedolererid Body', correct: false},
+                {text: '1Golden poison frog', correct: true},
+                {text: 'trtrtrtrtrtrpe', correct: false}
+            ]
+        }
 ]
 
 
@@ -121,6 +138,9 @@ function next(){
     time = 20;
     reset();
     timer();
+    questionsbox.classList.remove('remove');
+    shuffle = questionBank.sort(()=>Math.random() - 0.5)
+    currentindex = 0;
     showQuestion(shuffle[currentindex]);
     countEl.textContent = 'Time left: ' + time;
     
