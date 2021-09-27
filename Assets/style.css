@@ -24,15 +24,33 @@ body {
   --black: black;
   --container: rgb(77, 154, 206);
 }
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 50vh;
+  width: 100%;
+}
+.box1 {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+}
 
-#container {
-  width: 800px;
-  height: 600px;
+.container {
+  width: 60vw;
+  height: 700px;
   background-color: var(--container);
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 0px 10px 6px rgb(37, 37, 37);
   padding: 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 .questions {
   text-align: center;
@@ -50,6 +68,7 @@ button {
   border-radius: 10px;
   color: rgb(245, 245, 245);
   font-size: 2em;
+  height: 100px;
 }
 button:hover {
   transform: translatey(-2px);
@@ -62,11 +81,9 @@ button:hover {
   gap: 20px;
 }
 .gamebuttons {
-  display: grid;
-  gap: 30px;
-  justify-content: right;
-  align-items: flex-end;
-  margin-top: 50px;
+  position: relative;
+  top: 700px;
+  right: 400px;
 }
 
 .gamebuttons button:hover {
@@ -78,27 +95,68 @@ button:hover {
   display: none;
 }
 #startBtn {
-  position: absolute;
   margin: 0 auto;
   height: 100px;
   width: 300px;
-  bottom: 440px;
 }
+#nextBtn {
+  width: 100%;
+  position: absolute;
+  justify-content: right;
+  left: 66vw;
+  top: 300px;
+  justify-content: right;
+  height: 50px;
+  text-align: center;
+  align-items: center;
+  width: 10%;
+  margin: auto;
+}
+
 .questions-box {
   font-size: 2em;
   width: 100%;
   text-align: right;
 }
-.next {
-  align-items: flex-end;
-  justify-content: right;
-}
+
 .timer {
-  text-align: right;
+  text-align: center;
   font-size: 2em;
 }
 .questions {
   font-size: 2em;
   text-align: center;
   margin: 60px 0px;
+}
+#Highscores {
+  margin: auto;
+  background-color: rgb(36, 37, 39);
+  height: 100vh;
+  width: 50vw;
+  position: absolute;
+  z-index: -1;
+  text-align: center;
+  color: white;
+}
+
+@media only screen and (max-width: 1600px) {
+  body {
+    font-size: 10px;
+  }
+  #nextBtn {
+    position: absolute;
+    top: 20vh;
+  }
+  button {
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  button {
+    font-size: 14px;
+  }
+  #nextBtn {
+    position: absolute;
+    top: 30vh;
+  }
 }

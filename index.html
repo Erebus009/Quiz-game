@@ -1,35 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Assets/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Assets/style.css" />
     <title>Quiz</title>
-</head>
-<body>
-    
-    <div id="container">
-        <div id="box" class="remove">
-            <div class="timer"></div>
-            <div id="question" class="questions"></div>
+  </head>
+  <body>
+    <div id="Highscores">
+      <h1>Highscores</h1>
+      <span>⭐</span>
+    </div>
+    <div class="container">
+      <div id="box" class="box">
+        <button id="startBtn" class="start">Start</button>
         
-            <div id="button-grid" class="grid">
-            
-         
-            
-            
-            
-        </div>
+        <div class="timer"></div>
+        <div id="question" class="questions"></div>
+        <div id="next-button">
+            <button id="nextBtn" class="remove">➤</button>
+          </div>
+        <div id="button-grid" class="grid"></div>
+      </div>
     </div>
-    <div class="gamebuttons">
-        <button id ="startBtn" class="start">Start</button>
-        <button  id="nextBtn" class="remove">➤</button>
-    </div>
-</div>
-
-
-    
-</body>
-<script src="./Assets/script.js"></script>
+  </body>
+  <script src="./Assets/script.js"></script>
 </html>

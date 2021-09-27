@@ -8,7 +8,7 @@ var questionEl = document.querySelector('.questions')
 const  answerBtnEl = document.getElementById('button-grid')
 var time = 20;
 var counterRan= 0;
-
+let container = document.querySelector('.container')
 
 let shuffle , currentindex
 //  layout for questions. 
@@ -26,19 +26,19 @@ const questionBank = [
         }, {
         question: "world's most toxic frog?",
             a : [
-                {text: '1954dfdfdfd”',  correct:true},
-                {text: '1949 Bigdfdfdolid Body', correct: false},
-                {text: '1dfdfdfddplorer', correct: false},
-                {text: '1964dfdfdfdrototype', correct: true}
+                {text: 'Tree frog',  correct:false},
+                {text: 'Okopipi ', correct: false},
+                {text: 'Dyeing dart frog', correct: false},
+                {text: 'Golden poison frog', correct: true}
             ]
 
         }, {
-            question: "monkeys eyes?",
+            question: "World's deepest living fish?",
             a : [
-                {text: '19fefeffd”',  correct:false},
-                {text: '1fefefedolererid Body', correct: false},
-                {text: '1Golden poison frog', correct: true},
-                {text: 'trtrtrtrtrtrpe', correct: false}
+                {text: 'The lanternfish ',  correct:false},
+                {text: 'Deep Angler Fish', correct: false},
+                {text: 'Mariana snailfish', correct: true},
+                {text: 'Black seadevil', correct: false}
             ]
         }
 ]
@@ -61,9 +61,11 @@ function startQuiz(){
     
     // add class remove to start btn CSS= display:none;
     startBtn.classList.add('remove');
+    questionsbox.classList.remove('box');
+    questionsbox.classList.add('box1');
     // remove class remove on div box containing all the buttons and questions to begin question 1. 
     questionsbox.classList.remove('remove');
-    shuffle = questionBank.sort(()=>Math.random() - 0.5)
+    shuffle = questionBank.sort(()=>Math.random() - 0.1)
     currentindex = 0;
 
     // populate buttons with answers. 
@@ -91,6 +93,7 @@ var timer = setInterval(() => {
         countEl.textContent= 'Time left:' + time;
     if(counterRan === 1){
         countEl.textContent = "Correct!"
+        nextBtn.classList.remove('remove');
         clearInterval(timer)
 
     }
@@ -134,15 +137,24 @@ function showQuestion(questionBank){
     
 }
 function next(){
+    if (currentindex >= 2 ){
+        container.classList.add('remove');
+        container.classList.remove('container');
+        
+        
+        
+    }
+    
+    
     counterRan = 0;
     time = 20;
     reset();
     timer();
     questionsbox.classList.remove('remove');
-    shuffle = questionBank.sort(()=>Math.random() - 0.5)
-    currentindex = 0;
+    currentindex++;
     showQuestion(shuffle[currentindex]);
     countEl.textContent = 'Time left: ' + time;
+    
     
     
     
@@ -152,13 +164,13 @@ function selected(e){
     const selectedBtn = e.target;
     const correct = selectedBtn.dataset.correct;
     
-    // if(time = 0) {
-    //     selectedBtn === selectedBtn.dataset.timeup;
     
     if (correct) {
         counterRan++;
+        var score = time + 5;
         nextBtn.classList.remove('remove');
         countEl.textContent = "Correct!";
+        return score;
     
     }
         
@@ -179,6 +191,5 @@ function reset() {
 }
 
 
-console.log(startQuiz);
-console.log(selected);
-console.log(counterRan);
+
+console.log(score);
