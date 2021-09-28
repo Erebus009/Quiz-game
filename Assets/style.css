@@ -150,7 +150,8 @@ button:hover {
   z-index: -1;
   text-align: center;
   color: white;
-  z-index: 2;
+  z-index: 3;
+  padding-top: 100px;
 }
 
 @media only screen and (max-width: 1600px) {
