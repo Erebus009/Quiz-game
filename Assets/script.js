@@ -4,30 +4,36 @@ const nextBtn = document.getElementById("nextBtn");
 const startBtn = document.getElementById("startBtn");
 const questionsbox = document.getElementById("box");
 const container = document.querySelector(".container");
-const highscore = document.querySelector('#highscores')
+const writeScores = document.querySelector("#writeScores");
 var countEl = document.querySelector(".timer");
 var questionEl = document.querySelector(".questions");
 const answerBtnEl = document.getElementById("button-grid");
-var user = prompt('Set your username.');
-// variables for score/timers.
-var score = 0;
+
+
+const highScoreBoard = document.querySelector('.highscore')
+let score = 0;
+let highscore = localStorage.getItem('userHighscore');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var time = 20;
 var counterRan = 0;
-const max_high_score = 8;
+
 
 let shuffle, currentindex;
-
-const arrayHighScore = JSON.parse(localStorage.getItem('highscores')) || [];
-console.log(arrayHighScore);
-
-
-
-
-
-
-
-
-
 
 //  layout for questions.
 const questionBank = [
@@ -63,19 +69,15 @@ const questionBank = [
   },
 ];
 
-console.log(questionBank);
-console.log();
-
 // start button clicked starts quiz
 startBtn.addEventListener("click", startQuiz);
+
 // nextBtn.addEventListener('click', nextQuestion);
 nextBtn.addEventListener("click", next);
 // When start clicked begins a timer for each questiuon and removes start button from view.
 
-
 function startQuiz() {
   console.log("Game begins");
-  
 
   // add class remove to start btn CSS= display:none;
   startBtn.classList.add("remove");
@@ -83,7 +85,7 @@ function startQuiz() {
   questionsbox.classList.add("box1");
   // remove class remove on div box containing all the buttons and questions to begin question 1.
   questionsbox.classList.remove("remove");
-  shuffle = questionBank.sort(() => Math.random() - 0.1);
+  shuffle = questionBank.sort(() => Math.random() - 0.5);
   currentindex = 0;
 
   // populate buttons with answers.
@@ -129,8 +131,7 @@ function next() {
   if (currentindex >= 2) {
     container.classList.add("remove");
     container.classList.remove("container");
-    highscore.classList.remove('remove');
-
+    writeScores.classList.remove("remove");
   }
 
   counterRan = 0;
@@ -143,17 +144,17 @@ function next() {
   countEl.textContent = "Time left: " + time;
 }
 
-
-// When correct button is slected and when wrong button is slected. 
+// When correct button is slected and when wrong button is slected.
 function selected(e) {
   const selectedBtn = e.target;
   const correct = selectedBtn.dataset.correct;
 
   if (correct) {
-    score = score + time + 5;
     counterRan++;
+    score = score + time;
     nextBtn.classList.remove("remove");
     countEl.textContent = "Correct!";
+    console.log(score);
   }
 }
 
@@ -163,9 +164,3 @@ function reset() {
     answerBtnEl.removeChild(answerBtnEl.firstChild);
   }
 }
-
-
-
-
-
-console.log(score);
