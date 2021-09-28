@@ -9,10 +9,7 @@ var countEl = document.querySelector(".timer");
 var questionEl = document.querySelector(".questions");
 const answerBtnEl = document.getElementById("button-grid");
 
-
-const highScoreBoard = document.querySelector('.highscore')
-let score = 0;
-let highscore = localStorage.getItem('userHighscore');
+var topScores = [];
 
 
 
@@ -29,6 +26,8 @@ let highscore = localStorage.getItem('userHighscore');
 
 
 
+
+var score = 0;
 var time = 20;
 var counterRan = 0;
 
@@ -155,6 +154,7 @@ function selected(e) {
     nextBtn.classList.remove("remove");
     countEl.textContent = "Correct!";
     console.log(score);
+
   }
 }
 
@@ -164,3 +164,15 @@ function reset() {
     answerBtnEl.removeChild(answerBtnEl.firstChild);
   }
 }
+
+document.getElementById('submit').addEventListener("click", function(){
+  console.log(document.getElementById("initials").value)
+  console.log( document.getElementById("final-score").textContent)
+  var currentUser = {};
+  currentUser.initials = document.getElementById("initials").value
+  currentUser.score = document.getElementById("final-score").textContent
+  topScores.push(currentUser) 
+  localStorage.setItem("highscores",JSON.stringify(topScores))
+})  
+
+console.log(score);

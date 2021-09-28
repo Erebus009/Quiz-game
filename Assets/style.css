@@ -24,6 +24,14 @@ body {
   --black: black;
   --container: rgb(77, 154, 206);
 }
+
+#intials {
+  z-index: 12;
+  margin-top: 100px;
+  height: 50px;
+box-sizing: unset;
+}
+
 .box {
   display: flex;
   justify-content: center;
@@ -142,6 +150,7 @@ button:hover {
   z-index: -1;
   text-align: center;
   color: white;
+  z-index: 2;
 }
 
 @media only screen and (max-width: 1600px) {
