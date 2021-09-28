@@ -143,7 +143,7 @@ function next() {
   countEl.textContent = "Time left: " + time;
 }
 
-// When correct button is slected and when wrong button is slected.
+// When correct button is selected and when wrong button is selected.
 function selected(e) {
   const selectedBtn = e.target;
   const correct = selectedBtn.dataset.correct;
